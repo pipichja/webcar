@@ -1,0 +1,26 @@
+{
+  "อาคารเรียนรวม 1": ["CB1","N20", "classrom building 1", "Classrom Building 1", "ตึกเรียนรวม1","CB 1","CB1 Building","cb1"],
+  "Classroom Building 2 (CB2)": ["CB2", "อาคารเรียนรวม 2", "รวม 2", "ตึกเรียนรวม 2", "N17","CB 2","CB2 Building","cb2"],
+  "CB3": ["CB3", "อาคารเรียนรวม 3", "รวม 3", "ตึกเรียนรวม 3", "S13", "ตึกครุศาสตร์","CB 3","CB3 Building","cb3"],
+  "CB4": ["CB4", "อาคารเรียนรวม 4", "รวม 4", "ตึกเรียนรวม 4", "S12", "INC" , "EE" , "ภาคไฟ" ,"วิศวกรรมไฟฟ้า","CB 4","CB4 Building","cb4"],
+  "CB5": ["CB5", "อาคารเรียนรวม 5", "รวม 5", "ตึกเรียนรวม 5", "S11" ,"CB 5","CB5 Building","cb5"],
+  "Green Society": ["S10" ],
+  "กลุ่มอาคารวิศววัฒนะ": ["CPE", "ตึกคอม", "คณะวิศวกรรมคอมพิวเตอร์", "Computer Engineer","Civil and Logistics","Mecahanical Engineer","ME","S4"],
+  "ภาควิชาวิศวกรรมเคมี": ["S15","ภาควิชาวิศวกรรมเคมี"],
+  "ภาควิชาคณิตศาสตร์": ["N4"],
+  "คณะเทคโนโลยีสารสนเทศ":["N11"],
+  "สำนักหอสมุด":["Library","KMUTT Library","N10","library","n10"],
+  "ภาควิชาเคมี":["N3"],
+  "LX": ["LX", "ตึกแล็บ", "ตึกทดลอง", "Laboratory","N16","LX Building"],
+  "สำนักงานอธิการบดี": ["N2","n2"],
+  "KMUTT Canteen": ["โรงอาหาร", "โรงอาหารกลาง", "Canteen", "โรงอาหารใหญ่","KFC","S14","kfc","KMUTTCanteen","KMUTTcanteen"],
+  "Chaloem Phrakiat Park": ["สวนเฉลิม", "สวนใหญ่", "สวนรอบบ่อ", "Chaloem Park"],
+  "Learning Garden": ["สวนเรียนรู้", "Learning Garden", "ลานหญ้า"],
+  "Learning Space": ["Learning Space", "ห้องเรียนรู้"],
+  "KMUTT Shuttle Bus": ["ป้ายรถกอล์ฟ", "รถบัส", "Shuttle", "Shuttle Bus"],
+  "7-Eleven": ["เซเว่น", "7-11", "ร้านสะดวกซื้อ","senven eleven"],
+  "Cafe Amazon": ["Amazon", "ร้านกาแฟ", "Cafe Amazon"],
+  "Kamu": ["Kamu", "ร้านชา", "Kamu Kamu"],
+  "Parking Building": ["book store", "U-Store", "S2"]
+  
+}

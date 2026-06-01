@@ -1,0 +1,431 @@
+
+
+/* =========================
+   🧭 HEADER
+   ========================= */
+
+
+.header {
+  position: fixed;            /* ล็อกตำแหน่งไว้กับหน้าจอ ไม่เลื่อนตาม scroll */
+  top: 12px;                  /* ระยะจากขอบบน (ลด = ชิดขึ้น / เพิ่ม = ลงมา) */
+  left: 50%;                  /* จัดกึ่งกลางแนวนอน */
+  transform: translateX(-50%);/* เลื่อนกลับครึ่งหนึ่งให้ตรงกลางพอดี */
+
+  padding: 18px 40px;         /* ขนาดกล่อง (บนล่าง | ซ้ายขวา) */
+                              /* ↑ เพิ่ม = กล่องใหญ่ ดูหรูขึ้น */
+
+  font-size: 26px;            /* ขนาดตัวอักษร */
+                              /* ↑ เพิ่ม = ตัวหนังสือใหญ่ ชัดขึ้น */
+  font-weight: 600;           /* ความหนา (400 ปกติ, 700 หนา) */
+  letter-spacing: 0.5px;      /* ระยะห่างตัวอักษร (เพิ่ม = ดูโปร) */
+
+  color: white;               /* สีข้อความ */
+                              /* 🔧 เปลี่ยนเป็น #FFD700 ได้ถ้าอยากให้เด่น */
+  background: rgba(0, 0, 0, 0.55);
+  /* ↑ สีพื้นหลัง (ดำ + โปร่ง)
+     - ตัวสุดท้าย 0.55 = ความทึบ
+     - เพิ่มเป็น 0.7 = ดำเข้ม
+     - ลดเป็น 0.3 = ใสมาก */
+
+  backdrop-filter: blur(10px);
+  /* ↑ ความเบลอของพื้นหลัง
+     - เพิ่ม = glass ชัด
+     - ลด = คมขึ้น */
+
+  border-radius: 999px;       /* ทำให้กล่องโค้งมนแบบแคปซูล */
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.35);
+  /* ↑ เงา
+     - ตัวเลขแรก = เงาแนวตั้ง
+     - ตัวเลขสอง = ความฟุ้ง
+     - ค่า rgba = ความเข้ม */
+
+  z-index: 9999;              /* ให้ลอยอยู่บนสุด ไม่โดนแผนที่ทับ */
+}
+
+
+
+.glass {
+  background: rgba(20, 20, 20, 0.45);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  box-shadow:
+    0 12px 30px rgba(0, 0, 0, 0.35),
+    inset 0 0 0.5px rgba(255,255,255,0.35);
+
+  color: white;
+}
+
+
+
+/* .cesiumContainer,
+.cesium-viewer,
+.cesium-viewer canvas {
+  width: 100%;
+  height: 100vh;
+} */
+
+
+
+/* =========================
+   📦 Route Wrapper
+   ========================= */
+.routeWrapper {
+  position: fixed;
+  bottom: 20px;              /* ระยะจากขอบล่างทั้งก้อน */
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 9999;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;                 /* ระยะห่าง Follow ↔ RouteCard */
+}
+
+
+
+
+
+/* =========================
+   📋 ROUTE CARD (GLASS STYLE)
+   ========================= */
+
+.routeCard {
+
+  
+  width: min(96vw, 570px);   /* 👈 กว้างขึ้นตามที่คุณต้องการ */
+  padding: 30px 34px;
+
+
+  /* position: relative;      */
+
+  /* width: min(92%, 520px);     กว้างแต่ไม่ล้นจอ */
+  /* padding: 30px 34px;         กล่องหนา อ่านง่าย */
+
+  /* 🧊 glass background */
+  background: rgba(20, 20, 20, 0.45);
+  /* ↑ สีดำใสแบบเดียวกับ header */
+
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
+  /* ↑ เบลอฉากหลังให้ดูเป็น glass */
+
+  border-radius: 26px;        /* มุมโค้งมน นุ่ม */
+  border: 1px solid rgba(255,255,255,0.18);
+  /* ↑ เส้นขอบบาง ๆ แบบ glass */
+
+  box-shadow:
+    0 22px 48px rgba(0, 0, 0, 0.35),
+    inset 0 0 0.5px rgba(255,255,255,0.35);
+  /* ↑ เงาด้านนอก + glow ด้านใน */
+
+  color: white;               /* ตัวหนังสือหลักเป็นขาว */
+  z-index: 9999;
+}
+
+
+/* =========================
+   🏁 Route Card Content
+   ========================= */
+
+/* ชื่อจุดหมาย */
+.routeTitle {
+  font-size: 28px;
+  font-weight: 800;
+  color: white;               /* ขาวชัด */
+  margin-bottom: 18px;
+}
+
+/* แถวข้อมูล */
+.routeRow {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 12px;
+}
+
+/* label ฝั่งซ้าย */
+.label {
+  font-size: 18px;
+  font-weight: 600;
+  color: rgba(255,255,255,0.7);
+  /* ↑ ขาวนุ่ม อ่านสบาย */
+}
+
+/* value ฝั่งขวา */
+.value {
+  font-size: 22px;
+  font-weight: 700;
+  color: #fbfdff;
+  /* ↑ ฟ้านุ่ม ๆ แบบ HUD */
+}
+
+
+/* =========================
+   🎛 HUD CONTROLS (GLASS)
+   ========================= */
+
+/* กล่องรวมปุ่ม */
+.hud {
+  position: fixed;
+  top: 120px;
+  right: 20px;
+  z-index: 9999;
+
+  display: flex;
+  flex-direction: column;
+  gap: 14px;                  /* ระยะหายใจ */
+}
+
+
+/* =========================
+   🧊 GLASS BUTTON BASE
+   ========================= */
+
+.btn {
+  padding: 14px 22px;         /* ปุ่มอวบ กดง่าย */
+  font-size: 16px;
+  font-weight: 700;
+
+  border-radius: 14px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+
+  /* 🧊 glass look */
+  background: rgba(255,255,255,0.08);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+
+  border: 1px solid rgba(255,255,255,0.25);
+  color: white;
+
+  box-shadow:
+    0 6px 16px rgba(0,0,0,0.4),
+    inset 0 0 0.5px rgba(255,255,255,0.4);
+}
+
+/* hover */
+.btn:hover {
+  background: rgba(255,255,255,0.14);
+  transform: translateY(-2px);
+  box-shadow:
+    0 10px 22px rgba(0,0,0,0.55),
+    inset 0 0 0.5px rgba(255,255,255,0.45);
+}
+
+
+/* =========================
+   🎨 Button States (Glass)
+   ========================= */
+
+/* Follow Camera (ปกติ) */
+.follow {
+  background: rgba(68, 67, 67, 0.35);
+  border-color: rgba(255,255,255,0.35);
+}
+
+/* Follow Camera (active) */
+.followActive {
+  background: rgba(46, 125, 50, 0.35);
+  border-color: rgba(46, 204, 113, 0.7);
+}
+
+
+/* โซนปุ่มด้านล่างของ Route Card */
+.routeActions {
+  margin-top: 24px;                 /* 👈 ดันออกจากข้อมูล */
+  padding-top: 18px;
+
+  border-top: 1px solid rgba(255,255,255,0.18);
+  /* 👈 เส้นบาง ๆ บอกว่าคนละ section */
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 14px;
+}
+
+.routeActions .btn {
+  flex: 1;
+}
+
+
+/* =========================
+   ▶️ Start Navigation (Primary)
+   ========================= */
+
+.start {
+  /* สีหลักของปุ่ม */
+  background: linear-gradient(
+    135deg,
+    rgba(30, 136, 229, 0.75),
+    rgba(13, 71, 161, 0.75)
+  );
+  /* ↑ ฟ้าเข้ม + ใส ยังเป็น glass แต่เห็นชัด */
+
+  border: 1px solid rgba(140, 190, 255, 0.85);
+  /* ↑ ขอบสว่างนิด ๆ ให้เด้ง */
+
+  color: white;
+
+  box-shadow:
+    0 10px 26px rgba(30, 136, 229, 0.55),
+    inset 0 0 1px rgba(255,255,255,0.6);
+  /* ↑ เงาสีฟ้า = ปุ่มหลัก */
+}
+
+/* =========================
+❌ Cancel Navigation — danger strong 
+ ========================= */
+
+.cancel {
+  background: linear-gradient(
+    135deg,
+    rgba(198, 40, 40, 0.8),
+    rgba(142, 0, 0, 0.8)
+  );
+
+  border-color: rgba(255, 120, 120, 0.85);
+  color: white;
+
+  box-shadow:
+    0 12px 30px rgba(198, 40, 40, 0.65),
+    inset 0 0 1px rgba(255,255,255,0.6);
+
+}
+
+
+.cancel:hover {
+  background: linear-gradient(
+    135deg,
+    rgba(229, 57, 53, 0.9),
+    rgba(183, 28, 28, 0.9)
+  );
+
+  transform: translateY(-2px);
+
+  box-shadow:
+    0 16px 38px rgba(229, 57, 53, 0.85),
+    inset 0 0 1px rgba(255,255,255,0.7);
+}
+
+
+
+/* =========================
+   ❌ Cancel (Preview) — Red Light
+   ========================= */
+
+/* ❌ Cancel (Preview) — Red Glass, same style as Start */
+.secondaryCancel {
+  background: linear-gradient(
+    135deg,
+    rgba(196, 49, 49, 0.75),
+    rgba(142, 0, 0, 0.75)
+  );
+  /* ↑ ใช้ gradient แบบเดียวกับ .start */
+
+  border: 1px solid rgba(255, 140, 140, 0.85);
+  color: white;
+
+  box-shadow:
+    0 10px 26px rgba(198, 40, 40, 0.55),
+    inset 0 0 1px rgba(255,255,255,0.6);
+}
+
+
+.secondaryCancel:hover {
+  background: linear-gradient(
+    135deg,
+    rgba(229, 57, 53, 0.85),
+    rgba(183, 28, 28, 0.85)
+  );
+
+  transform: translateY(-2px);
+
+  box-shadow:
+    0 14px 34px rgba(229, 57, 53, 0.75),
+    inset 0 0 1px rgba(255,255,255,0.7);
+}
+
+/* =========================
+   📍 Follow Camera Floating
+   ========================= */
+.followFloating {
+  /* display: flex;
+  justify-content: center;
+  z-index: 10000; */
+
+    position: relative;
+
+  display: flex;
+  justify-content: center;
+
+}
+
+
+
+/* =========================
+   📦 Route + Follow Stack (fixed once)
+   ========================= */
+.routeStack {
+  position: fixed;
+  bottom: 20px;              /* ยึดตำแหน่งเหมือน RouteCard เดิม */
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 9999;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 14px;                 /* ระยะห่าง Follow ↔ RouteCard */
+}
+
+
+.arrivedPopup {
+  position: fixed;
+  bottom: 20px;               /* อยู่ตำแหน่งเดียวกับ RouteCard */
+  left: 50%;
+  transform: translateX(-50%);
+
+  width: min(96vw, 570px);    /* ⭐ เท่ากับ route card */
+
+  padding: 30px 34px;         /* ⭐ ขนาดเดียวกัน */
+
+  font-size: 28px;
+  font-weight: 800;
+
+  text-align: center;
+
+  color: white;
+
+  /* glass style เหมือน route card */
+  background: rgba(20, 20, 20, 0.45);
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
+
+  border-radius: 26px;
+  border: 1px solid rgba(255,255,255,0.18);
+
+  box-shadow:
+    0 22px 48px rgba(0, 0, 0, 0.35),
+    inset 0 0 0.5px rgba(255,255,255,0.35);
+
+  z-index: 9999;
+}
+
+.arrivedPopup {
+  animation: arrivedFade 0.4s ease;
+}
+
+@keyframes arrivedFade {
+  from {
+    opacity: 0;
+    transform: translate(-50%, 10px);
+  }
+  to {
+    opacity: 1;
+    transform: translate(-50%, 0);
+  }
+}

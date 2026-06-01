@@ -1,0 +1,11 @@
+{
+  "cb1": { "lat": "13.65097", "lon": "100.49357", "name": "Classroom Building 1 (CB1)" },
+  "cb2": { "lat": "13.65147", "lon": "100.49393", "name": "Classroom Building 2 (CB2)" },
+  "cb3": { "lat": "13.65059", "lon": "100.49439", "name": "Classroom Building 3 (CB3)" },
+  "cb4": { "lat": "13.64959", "lon": "100.49267", "name": "Classroom Building 4 (CB4)" },
+  "cb5": { "lat": "13.64954", "lon": "100.49214", "name": "Classroom Building 5 (CB5)" },
+  "cpe":  { "lat": "13.65035", "lon": "100.49250", "name": "Computer Engineering Building (CPE)" },
+  "science": { "lat": "13.65125", "lon": "100.49225", "name": "Science Building" },
+  "lx": { "lat": "13.65210", "lon": "100.49280", "name": "Laboratory Building (LX)" },
+  "canteen": { "lat": "13.64980", "lon": "100.49180", "name": "KMUTT Canteen" }
+}
