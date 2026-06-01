@@ -1,0 +1,100 @@
+version: "3.1"
+
+intents:        # <-- intent คือ เจตนา หรือ ความต้องการของผู้ใช้
+  - greet
+  - goodbye
+  - affirm
+  - deny
+  - mood_great
+  - mood_unhappy
+  - bot_challenge
+  - navigate
+  - drive_left
+  - drive_right
+  - go_forward
+  - increase_speed
+  - decrease_speed
+  - stop_car
+  - chitchat
+
+entities:
+  - destination   # <-- entity type คือ รายละเอียดเพิ่มเติม ที่อยู่ในประโยค
+
+slots:
+
+  destination:
+    type: text
+    mappings:
+      - type: from_entity
+        entity: destination
+
+  pending_destination:
+      type: text
+      influence_conversation: true
+      mappings:
+        - type: custom
+        # - type: from_text  # เพิ่มอันนี้เข้าไปเพื่อให้มันรับค่าได้ง่ายขึ้น
+responses:
+  utter_greet:
+  - text: "Hey! How are you?"
+
+  # utter_cheer_up:
+  # - text: "Here is something to cheer you up:"
+  #   image: "https://i.imgur.com/nGF1K8f.jpg"
+
+  utter_did_that_help:
+  - text: "Did that help you?"
+
+  # utter_happy:
+  # - text: "Great, carry on!"
+
+  utter_goodbye:
+  - text: "Bye"
+
+  utter_iamabot:
+  - text: "I am a bot, powered by Rasa."
+
+  utter_navigate:
+  - text: "Sure! I will take you to {destination}."
+  - text: "OK, navigating to {destination} 🚗"
+  - text: "On my way to {destination}! 🗺️"
+  - text: "Heading to {destination} now! 🛣️"
+  - text: "Let's go to {destination}! 🧭"
+  - text: "Taking you to {destination}! 🚀"
+
+  utter_confirm_destination:
+  - text: "Did you say {destination}? Should I start navigation?"
+  - text: "Do you want to go to {destination}?"
+  - text: "I heard {destination}. Is that correct?"
+
+  utter_drive_left:
+    - text: "Turn left now"
+    - text: "Move to the left"
+    - text: "got it, turning left"
+  utter_drive_right:
+    - text: "Turn right now"
+    - text: "Move to the right"
+    - text: "got it, turning right"
+  utter_go_forward:
+    - text: "Go straight ahead"
+    - text: "Move forward"
+    - text: "got it, going forward"
+
+actions:
+  - action_drive_left
+  - action_drive_right
+  - action_go_forward
+  - action_validate_location
+  - action_default_fallback
+
+
+
+
+
+
+
+
+  
+session_config:
+  session_expiration_time: 60
+  carry_over_slots_to_new_session: true

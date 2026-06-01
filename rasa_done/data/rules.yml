@@ -1,0 +1,103 @@
+version: "3.1"
+
+rules:
+
+- rule: Say goodbye anytime the user says goodbye
+  steps:
+  - intent: goodbye
+  - action: utter_goodbye
+
+- rule: Say 'I am a bot' anytime the user challenges
+  steps:
+  - intent: bot_challenge
+  - action: utter_iamabot
+
+# - rule: respond to greet
+#   steps:
+#   - intent: greet
+#   - action: utter_greet
+
+- rule: respond to navigation
+  steps:
+  - intent: navigate
+  - action: action_validate_location     # ✅ ตรวจพิกัดจาก backend ก่อน
+  # - action: utter_navigate               # ✅ พูดตอบกลับเมื่อมีสถานที่จริง
+  # - slot_was_set:
+  #     - destination: null                # ✅ รีเซ็ตค่า slot หลังตอบ
+
+- rule: Handle unknown inputs
+  steps:
+    - intent: nlu_fallback
+    - action: action_default_fallback
+
+# - rule: confirm navigation
+#   steps:
+#     - intent: affirm
+#     - action: action_validate_location
+
+# - rule: cancel navigation
+#   steps:
+#     - intent: deny
+#     - action: action_validate_location
+
+- rule: respond to navigation logic
+  steps:
+  - intent: navigate
+  - action: action_validate_location
+
+- rule: handle affirm/deny during navigation
+  steps:
+  - action: action_validate_location  # เมื่อ Bot ถามว่า "จะไป...ใช่ไหม?"
+  - intent: affirm                    # แล้ว User ตอบ "ใช่"
+  - action: action_validate_location  # ให้กลับไปเช็กพิกัดและสั่งเริ่มนำทาง
+
+- rule: Turn left
+  steps:
+  - intent: drive_left
+  # - action: utter_drive_left
+  - action: action_validate_location
+
+- rule: Turn right
+  steps:
+  - intent: drive_right
+  # - action: utter_drive_right
+  - action: action_validate_location
+
+- rule: Go forward
+  steps:
+  - intent: go_forward
+  # - action: utter_go_forward
+  - action: action_validate_location
+
+- rule: Speed up
+  steps:
+  - intent: increase_speed
+  - action: action_validate_location  
+
+- rule: Slow down
+  steps:
+  - intent: decrease_speed
+  - action: action_validate_location  
+ 
+- rule: Stop the car
+  steps:
+  - intent: stop_car
+  - action: action_validate_location  
+
+- rule: handle chitchat
+  steps:
+  - intent: chitchat
+  - action: action_default_fallback
+
+- rule: Handle fallback safely
+  steps:
+    - intent: nlu_fallback
+    - action: action_default_fallback
+    - action: action_listen
+
+# - rule: Handle navigation confirmation
+#   steps:
+#   - slot_was_set:
+#       - pending_destination: any  # เช็คว่ามีของค้างใน slot ไหม
+#   - intent: affirm
+#   - action: action_validate_location

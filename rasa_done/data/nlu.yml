@@ -1,0 +1,255 @@
+version: "3.1"
+
+nlu:
+- intent: greet
+  examples: |
+    - hey
+    - hello
+    - hi
+    - hello there
+    - good morning
+    - good evening
+    - moin
+    - hey there
+    - hey dude
+    - goodmorning
+    - goodevening
+    - good afternoon
+
+- intent: goodbye
+  examples: |
+    - cu
+    - good by
+    - cee you later
+    - good night
+    - bye
+    - goodbye
+    - have a nice day
+    - see you around
+    - bye bye
+    - see you later
+
+- intent: affirm
+  examples: |
+    - yes
+    - yeah
+    - yep
+    - y
+    - sure
+    - of course
+    - of course.
+    - yes of course
+    - yes please
+    - okay
+    - ok
+    - go ahead
+    - that's right
+    - correct
+    - yes,of course.
+    - yes, please.
+    - yes, of course.
+    - yes, start
+    - yes, let's go.
+    - yes, do it
+    - yes, proceed
+    - yes, let's go
+    - yes, start.
+
+- intent: deny
+  examples: |
+    - no
+    - n
+    - never
+    - I don't think so
+    - don't like that
+    - no way
+    - not really
+    - no no no
+
+- intent: mood_great
+  examples: |
+    - perfect
+    - great
+    - amazing
+    - feeling like a king
+    - wonderful
+    - I am feeling very good
+    - I am great
+    - I am amazing
+    - I am going to save the world
+    - super stoked
+    - extremely good
+    - so so perfect
+    - so good
+    - so perfect
+
+- intent: mood_unhappy
+  examples: |
+    - my day was horrible
+    - I am sad
+    - I don't feel very well
+    - I am disappointed
+    - super sad
+    - I'm so sad
+    - sad
+    - very sad
+    - unhappy
+    - not good
+    - not very good
+    - extremly sad
+    - so saad
+    - so sad
+
+- intent: bot_challenge
+  examples: |
+    - are you a bot?
+    - are you a human?
+    - am I talking to a bot?
+    - am I talking to a human?
+
+- intent: navigate
+  examples: |
+    - I want to go to the [library](destination)
+    - Navigate to [CB2](destination)
+    - Take me to [KMUTT](destination)
+    - พาไป [ตึกวิศวกรรม](destination)
+    - guide me to [CB4](destination)?
+    - go to [CB3](destination)
+    - find my way to [CB1](destination)
+    - get to [school](destination)?
+    - show me the way to [S13](destination)
+    - direct me to [S2](destination)
+    - go towards [CB3](destination)
+    - bring me over to [station](destination)
+    - get me to [N1](destination)
+    - head to [LX](destination)
+    - go to [CB1](destination)
+    - go to [CB2](destination)
+    - go to [CB3](destination)
+    - go to [CB4](destination)
+    - go to [CB5](destination)
+    - go to [CPE](destination)
+    - go to [Science](destination)
+    - go to [LX](destination)
+    - go to [KMUTT](destination)
+    - go to [Canteen](destination)
+    - go to [cb1](destination)
+    - go to [cb2](destination)
+    - go to [cb3](destination)
+    - go to [cb4](destination)
+    - go to [cb5](destination)
+    - go to [cpe](destination)
+    - go to [CB1](destination) building
+    - go to [CB2](destination) building
+    - go to [CB3](destination) building
+    - go to [CB4](destination) building
+    - go to [CB5](destination) building
+    - go to [CPE](destination) building
+    - go to [Science](destination) building
+    - go to [LX](destination) building
+    - navigate to [CB1](destination) building
+    - navigate to [CB2](destination) building
+    - take me to [CB3](destination) building
+    - guide me to [CB4](destination) building
+
+- lookup: destination
+  examples: |
+    -CB1
+    -CB2
+    -CB3
+    -CB4
+    -CB5
+    -CPE
+    -SCI
+    -LX
+    -KMUTT
+    -อาคารเรียนรวม 1
+    -อาคารเรียนรวม 2
+    -อาคารเรียนรวม 3
+    -อาคารเรียนรวม 4
+    -อาคารเรียนรวม 5
+    -ตึกคอม
+    -โรงอาหาร
+    -สวนเฉลิม
+    -อาคารเรียนรวมหนึ่ง
+    -อาคารเรียนรวมสอง
+    -อาคารเรียนรวมสาม
+    -อาคารเรียนรวมสี่
+    -อาคารเรียนรวมห้า
+    - CB1 building
+    - CB2 building
+    - CB3 building
+    - CB4 building
+    - CB5 building
+    - CPE building
+    - Science building
+    - LX building
+    -KMUTT Canteen
+
+- intent: drive_left
+  examples: |
+    - Turn to the left
+    - Turn left
+    - Go left
+    - Move to the left
+
+- intent: drive_right
+  examples: |
+    - Turn to the right
+    - Turn right
+    - Go right
+    - Move to the right
+
+- intent: go_forward
+  examples: |
+    - Go forward
+    - Move forward
+    - Straight
+    - Go straight
+    - Move straight
+    - Straight ahead
+
+- intent: increase_speed
+  examples: |
+    - speed up
+    - accelerate
+    - go faster
+    - increase speed
+    - speed it up
+    - make it faster
+
+- intent: decrease_speed
+  examples: |
+    - slow down
+    - decrease speed
+    - slow it down
+    - reduce speed
+    - go slower
+    - take it slow
+
+- intent: stop_car
+  examples: |
+    - stop the car
+    - stop
+    - brake
+    - halt the car
+    - stop moving
+    - pull over
+
+- intent: chitchat
+  examples: |
+    - how are you
+    - you are doing great
+    - wow
+    - nice to meet you
+    - that is cool
+    - good job
+    - i miss you
+    - can we talk
+    - you are funny
+    - don’t move anything
+    - oh wow
+    - haha
+    - no no
+    - don't tell me like that
+    - who are you?

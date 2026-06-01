@@ -1,0 +1,54 @@
+version: "3.1"
+
+stories:
+
+# - story: happy path
+#   steps:
+#   - intent: greet
+#   - action: utter_greet
+#   - intent: mood_great
+#   - action: utter_happy
+
+# - story: sad path 1
+#   steps:
+#   - intent: greet
+#   - action: utter_greet
+#   - intent: mood_unhappy
+#   - action: utter_cheer_up
+#   - action: utter_did_that_help
+#   - intent: affirm
+#   - action: utter_happy
+
+# - story: sad path 2
+#   steps:
+#   - intent: greet
+#   - action: utter_greet
+#   - intent: mood_unhappy
+#   - action: utter_cheer_up
+#   - action: utter_did_that_help
+#   - intent: deny
+#   - action: utter_goodbye
+
+# - story: navigate to destination
+#   steps:
+#     - intent: navigate
+#     - action: action_validate_location
+#     - action: utter_navigate  
+
+# --- คำสั่งเลี้ยวซ้าย ---
+# - story: drive left
+#   steps:
+#   - intent: drive_left
+#   - action: utter_drive_left
+
+# --- คำสั่งเลี้ยวขวา ---
+# - story: drive right
+#   steps:
+#   - intent: drive_right
+#   - action: utter_drive_right
+
+# --- คำสั่งขับตรงไป ---
+# - story: go forward
+#   steps:
+#   - intent: go_forward
+#   - action: utter_go_forward
