@@ -1,0 +1,10 @@
+openai-whisper==20250625
+sounddevice==0.5.5
+numpy==1.26.4
+requests==2.32.5
+torch==2.5.0
+webrtcvad==2.0.10
+soundfile==0.13.1
+speechbrain==1.0.3
+scipy==1.15.3
+gTTS==2.5.4
